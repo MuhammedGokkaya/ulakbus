@@ -8,7 +8,7 @@
       <bpmn2:lane id="personel_lane" name="Personel">
         <bpmn2:flowNodeRef>StartEvent_1</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>yeni_donem_form</bpmn2:flowNodeRef>
-        <bpmn2:flowNodeRef>aktif_donem_kaydet</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>donem_kaydet</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>program_kopyala</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>EndEvent_1</bpmn2:flowNodeRef>
       </bpmn2:lane>
@@ -20,17 +20,17 @@
       <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
     </bpmn2:userTask>
-    <bpmn2:serviceTask id="aktif_donem_kaydet" name="Aktif Dönem Kaydet">
+    <bpmn2:serviceTask id="donem_kaydet" name="Dönem Kaydet">
       <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
     </bpmn2:serviceTask>
-    <bpmn2:sequenceFlow id="SequenceFlow_1" name="" sourceRef="yeni_donem_form" targetRef="aktif_donem_kaydet"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" name="" sourceRef="yeni_donem_form" targetRef="donem_kaydet"/>
     <bpmn2:sequenceFlow id="SequenceFlow_2" name="" sourceRef="StartEvent_1" targetRef="yeni_donem_form"/>
     <bpmn2:serviceTask id="program_kopyala" name="Program Kopyala">
       <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
     </bpmn2:serviceTask>
-    <bpmn2:sequenceFlow id="SequenceFlow_3" name="" sourceRef="aktif_donem_kaydet" targetRef="program_kopyala"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" name="" sourceRef="donem_kaydet" targetRef="program_kopyala"/>
     <bpmn2:endEvent id="EndEvent_1">
       <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
     </bpmn2:endEvent>
@@ -53,7 +53,7 @@
       <bpmndi:BPMNShape id="_BPMNShape_UserTask_2" bpmnElement="yeni_donem_form">
         <dc:Bounds height="80.0" width="100.0" x="240.0" y="105.0"/>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_2" bpmnElement="aktif_donem_kaydet">
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_2" bpmnElement="donem_kaydet">
         <dc:Bounds height="80.0" width="100.0" x="360.0" y="105.0"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="_BPMNShape_UserTask_2" targetElement="_BPMNShape_ServiceTask_2">
